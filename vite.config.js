@@ -16,7 +16,7 @@ const isProdEnv = process.env.NODE_ENV === 'production';
 const publicPath = (isProdEnv && CHAT_VARIABLE)
   ? PUBLIC_PATH + '/' + CHAT_VARIABLE
   : PUBLIC_PATH + '/';
-const outDir = (isProdEnv && CHAT_VARIABLE) ? 'build/' + CHAT_VARIABLE : 'build';
+const outDir = (isProdEnv && CHAT_VARIABLE) ? 'dist/' + CHAT_VARIABLE : 'dist';
 const plugins = isProdEnv
   ? CHAT_VARIABLE
     ? [react(), prodHtmlTransformer(CHAT_VARIABLE)]
