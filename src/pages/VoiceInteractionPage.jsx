@@ -79,7 +79,9 @@ function VoiceInteractionPage() {
   const handleProviderChange = (value) => {
     setSelectedProvider(value);
     // 设置默认模型
-    setSelectedModel(value === 'google' ? 'gemini-pro' : 'gpt-4.1');
+    setSelectedModel(value === 'google' 
+      ? API_CONFIG.MODELS.GOOGLE[0].id 
+      : API_CONFIG.MODELS.OPENAI[0].id);
   };
 
   const handleSubmit = async (e) => {
@@ -129,7 +131,11 @@ function VoiceInteractionPage() {
               }
             ],
             temperature: 0.7,
-            max_tokens: 1000
+            max_tokens: 1000,
+            top_p: 0.95,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+            stream: false
           })
         });
         
